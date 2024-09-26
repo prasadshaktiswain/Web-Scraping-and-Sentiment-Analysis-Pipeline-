@@ -1,0 +1,51 @@
+Approach to the solution:
+
+The script follows these steps:
+1.Reads an Excel file containing URLs using the read_excel_file() function.
+2.Scrapes the content from those URLs using the process_dataframe(df) function.
+3.Reads stop words from text files in a specified directory using the read_stop_words(stopword_path) function.
+4.Removes stop words from the scraped content using the remove_stopwords(text,stop_words) function.
+5.Loads positive and negative words from specified text files using the load_master_dictionary(positive_word_path, negative_word_path) function.
+6.Analyzes the sentiment of the cleaned text using the analyze_sentiment(cleaned_text, positive_words, negative_words) function.
+7.Calculates various scores and counts, and average values using the calculate_scores(text, positive_words, negative_words), calculate_readability(text), calculate_average_words_per_sentence(text), count_complex_words(text), calculate_cleaned_word_count(text), count_syllables_per_word(text), calculate_personal_pronouns(text), and calculate_average_word_length(text) functions.
+8.Finally, it prints the average word length to the console.
+
+
+How to run the .py file to generate output:
+
+1.Save the script as a .py file, for example, text_analysis.py.
+2.Open a terminal or command prompt.
+3.Navigate to the directory containing the .py file using the cd command.
+4.Run the script using the command python text_analysis.py.
+
+
+Dependencies required:
+
+The script requires the following Python libraries:
+
+pandas: for data manipulation and analysis.
+requests: for making HTTP requests.
+BeautifulSoup: for parsing HTML and XML documents.
+nltk: for working with human language data.
+TextBlob: for processing textual data.
+syllapy: for counting syllables.
+os: for interacting with the operating system.
+cmudict: for the Carnegie Mellon University Pronouncing Dictionary.
+stopwords: for stop words that can be filtered out.
+string: for common string operations.
+re: for regular expressions.
+
+imported libraries:
+
+import pandas as pd
+import requests
+from bs4 import BeautifulSoup
+import nltk
+from nltk.tokenize import word_tokenize
+from textblob import TextBlob
+from syllapy import count as syllables_count
+import os
+from nltk.corpus import cmudict
+from nltk.corpus import stopwords
+import string
+import re
